@@ -1,0 +1,166 @@
+/* const app = document.getElementById("app");
+    let students = [];
+
+    // 🏠 Home Page
+    function renderHomePage() {
+      app.innerHTML = "";
+      const title = document.createElement("h1");
+      title.textContent = "🎓 Student Management System";
+
+      const addBtn = document.createElement("button");
+      addBtn.textContent = "➕ Add Student";
+      addBtn.onclick = renderFormPage;
+
+      const listTitle = document.createElement("h2");
+      listTitle.textContent = "📋 Student List";
+
+      app.appendChild(title);
+      app.appendChild(addBtn);
+      app.appendChild(listTitle);
+
+      students.forEach((s, index) => {
+        const card = document.createElement("div");
+        card.className = "student-card";
+        card.innerHTML = `
+          <img src="${s.profile}" alt="Profile">
+          <h3>${s.name}</h3>
+          <p>Marks: Math ${s.marks.math}, Science ${s.marks.science}, English ${s.marks.english}</p>
+        `;
+        card.onclick = () => renderDetailsPage(index);
+        app.appendChild(card);
+      });
+    }
+
+    // 🧾 Add Student Form
+    function renderFormPage() {
+      app.innerHTML = "";
+
+      const title = document.createElement("h2");
+      title.textContent = "Add Student Details";
+
+      const formCard = document.createElement("div");
+      formCard.className = "form-card";
+
+      const form = document.createElement("form");
+
+      const name = createInput("text", "Full Name");
+      const age = createInput("number", "Age");
+      const address = createTextarea("Address");
+
+      // Subject Marks
+      const marksTitle = document.createElement("h3");
+      marksTitle.textContent = "Enter Subject Marks";
+
+      const math = createInput("number", "Math Marks");
+      const science = createInput("number", "Science Marks");
+      const english = createInput("number", "English Marks");
+
+      // File Upload
+      const profileLabel = document.createElement("label");
+      profileLabel.textContent = "Upload Profile Picture:";
+      const profileInput = document.createElement("input");
+      profileInput.type = "file";
+      profileInput.accept = "image/*";
+
+      const preview = document.createElement("img");
+      preview.id = "preview";
+
+      profileInput.onchange = function () {
+        const file = this.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = "block";
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+
+      const submit = document.createElement("button");
+      submit.textContent = "Submit";
+      submit.type = "submit";
+
+      form.append(
+        name, age, address,
+        marksTitle, math, science, english,
+        profileLabel, profileInput, preview, submit
+      );
+      formCard.append(title, form);
+      app.appendChild(formCard);
+
+      form.onsubmit = (e) => {
+        e.preventDefault();
+
+        const student = {
+          name: name.value,
+          age: age.value,
+          address: address.value,
+          marks: {
+            math: math.value,
+            science: science.value,
+            english: english.value
+          },
+          profile: preview.src || "https://via.placeholder.com/100"
+        };
+
+        students.push(student);
+        renderHomePage();
+      };
+    }
+
+    // 👤 Student Details Page
+    function renderDetailsPage(index) {
+      const s = students[index];
+      app.innerHTML = "";
+
+      const title = document.createElement("h2");
+      title.textContent = "Student Details";
+
+      const detailsCard = document.createElement("div");
+      detailsCard.className = "details-card";
+
+      const img = document.createElement("img");
+      img.src = s.profile;
+
+      const info = document.createElement("div");
+      info.className = "details-info";
+      info.innerHTML = `
+        <p><strong>Name:</strong> ${s.name}</p>
+        <p><strong>Age:</strong> ${s.age}</p>
+        <p><strong>Address:</strong> ${s.address}</p>
+        <div class="marks-box">
+          <p><strong>Marks:</strong></p>
+          <p>Math: ${s.marks.math}</p>
+          <p>Science: ${s.marks.science}</p>
+          <p>English: ${s.marks.english}</p>
+        </div>
+      `;
+
+      detailsCard.append(img, info);
+
+      const back = document.createElement("button");
+      back.textContent = "⬅️ Back to Home";
+      back.onclick = renderHomePage;
+
+      app.append(title, detailsCard, back);
+    }
+
+    // Helper Inputs
+    function createInput(type, placeholder) {
+      const input = document.createElement("input");
+      input.type = type;
+      input.placeholder = placeholder;
+      input.required = true;
+      return input;
+    }
+
+    function createTextarea(placeholder) {
+      const textarea = document.createElement("textarea");
+      textarea.placeholder = placeholder;
+      textarea.required = true;
+      return textarea;
+    }
+
+    // Start App
+    renderHomePage(); */

@@ -1,0 +1,109 @@
+/* ----------- Reset ----------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #b3cde0, #f7f9fb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ----------- Form Container ----------- */
+form {
+  width: 800px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(5px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 25px;  /* row-gap col-gap */
+  transition: all 0.3s ease;
+}
+
+/* ----------- Title ----------- */
+form::before {
+  content: "Add Student Details";
+  grid-column: span 2;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #2f3e46;
+  margin-bottom: 5px;
+}
+
+/* ----------- Labels ----------- */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 5px;
+}
+
+/* ----------- Inputs ----------- */
+input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1.3px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #f9fafb;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  border-color: #3b82f6;
+  background: #ffffff;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.25);
+  outline: none;
+}
+
+/* ----------- Full Width Fields ----------- */
+input[type="file"],
+button {
+  grid-column: span 2;
+}
+
+/* ----------- Submit Button ----------- */
+button {
+  margin-top: 10px;
+  background: #3b82f6;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* ----------- Responsive ----------- */
+@media (max-width: 700px) {
+  form {
+    width: 90%;
+    grid-template-columns: 1fr;
+  }
+
+  form::before {
+    grid-column: span 1;
+  }
+
+  button,
+  input[type="file"] {
+    grid-column: span 1;
+  }
+}

@@ -1,0 +1,115 @@
+/* ---------- Base Layout ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #dfe9f3, #ffffff);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+/* ---------- Main Container ---------- */
+.main {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ---------- Add Button Section ---------- */
+.add {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+}
+
+.add button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.add button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* ---------- Cards Section ---------- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+/* ---------- Individual Card ---------- */
+.card {
+  width: 260px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  overflow: hidden;
+  padding: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 22px rgba(0,0,0,0.2);
+}
+
+/* ---------- Card Image ---------- */
+.card img {
+  width: 100%;
+  height: 150px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* ---------- Card Text ---------- */
+.card h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.card p {
+  color: #666;
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+/* ---------- No Students Message ---------- */
+.cards p {
+  font-size: 18px;
+  color: #777;
+  text-align: center;
+}
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 85%;
+  }
+}
