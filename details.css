@@ -42,7 +42,7 @@ body {
   margin: 8px 0;
 }
 
-#back-btn {
+/* #back-btn {
   margin-top: 20px;
   background: linear-gradient(135deg, #4f8ef7, #2563eb);
   color: white;
@@ -60,4 +60,48 @@ body {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(37, 99, 235, 0.5);
+} */
+
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn-group button {
+  padding: 10px 20px;
+  height: 45px;             /* ✅ Same height for all buttons */
+  min-width: 90px;          /* ✅ Consistent width */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s;
+  color: #fff;
+}
+
+#edit-btn {
+  background-color: #007bff;
+}
+
+#edit-btn:hover {
+  background-color: #0056b3;
+}
+
+#delete-btn {
+  background-color: #dc3545;
+}
+
+#delete-btn:hover {
+  background-color: #a71d2a;
+}
+
+#back-btn {
+  background-color: #0d6efd;   /* same tone as edit */
+}
+
+#back-btn:hover {
+  background-color: #084298;
 }
