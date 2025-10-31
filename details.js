@@ -1,28 +1,34 @@
 window.addEventListener("DOMContentLoaded", () => {
-  const students = JSON.parse(localStorage.getItem("students")) || [];
-  const selectedIndex = localStorage.getItem("selectedStudentIndex");
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
 
-  if (selectedIndex === null || !students[selectedIndex]) {
+  const students = JSON.parse(localStorage.getItem("students")) || [];
+  const student = students[id];
+
+  if (!student) {
     document.body.innerHTML = "<p>Student not found!</p>";
     return;
   }
 
-  const student = students[selectedIndex];
-
-  //  Set all values safely
   document.getElementById("profile-pic").src = student.userImage || student.pic || "";
-  document.getElementById("profile-name").textContent = student.userName || "No Name";
-  document.getElementById("profile-email").textContent = student.userEmail || "N/A";
-  document.getElementById("profile-password").textContent = student.userPassword || "N/A";
-  document.getElementById("profile-age").textContent = student.userAge || "N/A";
-  document.getElementById("profile-phone").textContent = student.userPhone || "N/A";
-  document.getElementById("profile-address").textContent = student.userAddress || "N/A";
-  document.getElementById("profile-city").textContent = student.userCity || "N/A";
-  document.getElementById("profile-pincode").textContent = student.userPincode || "N/A";
-  document.getElementById("profile-dob").textContent = student.userDob || "N/A";
+
+  const detailsContainer = document.getElementById("profile-details");
+
+  detailsContainer.innerHTML = `
+    <h2>${student.userName || "No Name"}</h2>
+    <p><strong>Email:</strong> ${student.userEmail || "N/A"}</p>
+    <p><strong>Password:</strong> ${student.userPassword || "N/A"}</p>
+    <p><strong>Age:</strong> ${student.userAge || "N/A"}</p>
+    <p><strong>Phone:</strong> ${student.userPhone || "N/A"}</p>
+    <p><strong>Address:</strong> ${student.userAddress || "N/A"}</p>
+    <p><strong>City:</strong> ${student.userCity || "N/A"}</p>
+    <p><strong>Pincode:</strong> ${student.userPincode || "N/A"}</p>
+    <p><strong>DOB:</strong> ${student.userDob || "N/A"}</p>
+  `;
+   detailsContainer.innerHTML += `<button id="back-btn">⬅ Back</button>`;
+document.getElementById("back-btn").addEventListener("click", () => {
+  window.location.href = "index.html";
 });
 
- // Back button functionality
-    document.getElementById("back-btn").addEventListener("click", () => {
-      window.location.href = "../index.html";
-    });
+});
+
